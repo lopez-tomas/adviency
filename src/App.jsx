@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Gift from './components/Gift';
 import './App.sass';
 
 const giftsList = [
@@ -15,7 +16,7 @@ const App = () => {
       <h1>Gifts:</h1>
       <ul>
         {gifts.map((gift, index) => (
-          <li key={index}>{gift}</li>
+          <Gift key={index} gift={gift} />
         ))}
       </ul>
     </main>
