@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import GiftList from './containers/GiftList';
+
+const giftsList = [
+  'Logitech G Pro mouse',
+  'Razer keyboard',
+  'HyperX headset'
+]
 
 const App = () => {
+  const [gifts, setGifts] = useState(giftsList);
+
   return (
-    <div className='App'>
-      <h1>Hello, World!</h1>
-    </div>
+    <main className="App">
+      <h1 className="App-title">Gifts</h1>
+      <GiftList gifts={gifts} />
+    </main>
   )
 }
 
