@@ -1,0 +1,23 @@
+@use './modules/colors'
+
+.Form
+  .input, .btn
+    border: none
+
+  .input
+    padding: 8px
+    background-color: #c7c7c7
+    border-top-left-radius: 16px
+    border-bottom-left-radius: 16px
+    &:hover
+      background-color: colors.$white
+    &:focus
+      background-color: colors.$white
+  .btn
+    padding: 8px
+    font-weight: bold
+    color: colors.$text-secondary
+    background-color: colors.$extra-color
+    &:hover
+      color: colors.$white
+      background-color: colors.$background-primary
