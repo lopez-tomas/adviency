@@ -8,7 +8,7 @@ const initialState = {
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
 
-  const createToDo = (payload) => {
+  const addGift = (payload) => {
     setState({
       ...state,
       gifts: [...state.gifts, payload],
@@ -16,10 +16,10 @@ const useInitialState = () => {
     });
   };
 
-  return (
+  return {
     state,
-    createToDo
-  )
-};
+    addGift,
+  }
+}
 
 export default useInitialState;
