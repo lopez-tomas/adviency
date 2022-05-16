@@ -3,6 +3,7 @@ import AppContext from './context/AppContext';
 import useInitialState from './hooks/useInitialState';
 import Form from './containers/Form';
 import GiftList from './containers/GiftList';
+import './styles/App.sass';
 
 const App = () => {
   const initialState = useInitialState();
