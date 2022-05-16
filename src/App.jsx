@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GiftList from './containers/GiftList';
+import './styles/App.sass';
 
 const giftsList = [
   'Logitech G Pro mouse',

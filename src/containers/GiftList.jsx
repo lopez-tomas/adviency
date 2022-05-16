@@ -1,5 +1,6 @@
 import React from 'react';
 import Gift from '../components/Gift';
+import '../styles/GiftList.sass';
 
 const GiftList = ({ gifts }) => {
   return (
