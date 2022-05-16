@@ -9,7 +9,11 @@ body {
 }
 
 #root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
+  background: white url('./images/winter-christmas-background.jpg') no-repeat fixed center;
 }
 
 code {
