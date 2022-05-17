@@ -1,0 +1,26 @@
+@use './modules/colors'
+
+.Gift
+  display: flex
+  width: 80%
+  padding: 8px
+  margin-bottom: 1rem
+  border-radius: 8px
+  font-weight: bold
+  color: colors.$background-secondary
+  background-color: colors.$text-primary
+
+  &-gift
+    width: 80%
+
+  &-btn
+    width: 20%
+    text-align: center
+
+    button
+      border: none
+      color: colors.$text-primary
+      font-size: 1rem
+      background-color: colors.$background-primary
+      &:hover
+        background-color: colors.$extra-color

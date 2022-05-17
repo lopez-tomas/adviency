@@ -1,0 +1,21 @@
+@use './modules/colors'
+
+.Form
+  .input, .btn
+    padding: 8px
+    border: none
+
+  .input
+    width: 76%
+    background-color: #efefef
+    &:focus
+      outline: none
+      background-color: white
+
+  .btn
+    width: 20%
+    color: colors.$background-secondary
+    background-color: colors.$text-secondary
+    &:hover
+      color: colors.$text-secondary
+      background-color: colors.$background-secondary
