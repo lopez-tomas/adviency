@@ -1,5 +1,6 @@
 import React, { useRef, useContext } from 'react';
 import AppContext from '../context/AppContext';
+import '../styles/Form.sass';
 
 const Form = () => {
   const { state, addGift } = useContext(AppContext);
@@ -23,7 +24,8 @@ const Form = () => {
 
   return (
     <form className="Form" ref={form}>
-      <input autoFocus
+      <input
+        autoFocus
         className="input add-input"
         type="text"
         name="gift"

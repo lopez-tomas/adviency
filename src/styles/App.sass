@@ -2,14 +2,21 @@
 
 .App
   .Form-container, .GiftList-container
+    width: 450px
     padding: 16px
 
   .Form-container
     display: flex
     flex-direction: column
-    background-color: colors.$background-primary
     color: colors.$text-primary
+    background-color: colors.$background-primary
+    border-top-left-radius: 8px
+    border-top-right-radius: 8px
+
+    h1
+      text-align: center
+      margin-bottom: 16px
 
   .GiftList-container
-    background-color: colors.$background-secondary
     color: colors.$text-secondary
+    background-color: colors.$background-secondary
