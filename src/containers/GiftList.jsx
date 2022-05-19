@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import AppContext from '../context/AppContext';
 import Gift from '../components/Gift';
 import xmas from '../images/undraw-xmas-surprise.svg';
+import '../styles/GiftList.sass';
 
 const GiftList = () => {
   const {state, removeAll} = useContext(AppContext);
@@ -25,13 +26,13 @@ const GiftList = () => {
             ))}
           </ul>
           <div className="noGifts-container">
-            <button onClick={removeAll}>Delete ALL</button>
+            <button className="noGifts-btn" onClick={removeAll}>Delete ALL</button>
           </div>
         </div>
       :
         <div className="GiftList">
           <div className="noGifts-container">
-            <img src={xmas} alt="No gifts:(" />
+            <img className="noGifts-img" src={xmas} alt="No gifts:(" />
             <h2>No gifts added :(</h2>
           </div>
         </div>
