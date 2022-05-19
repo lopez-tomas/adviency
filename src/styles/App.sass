@@ -1,0 +1,21 @@
+@use './modules/colors'
+@use './modules/sizes'
+
+.App
+  color: colors.$text-primary
+  .Form-container, .GiftList-container
+    width: 350px
+    padding: sizes.$lg
+
+  .Form-container
+    text-align: center
+    background-color: colors.$background-primary
+    border-top-right-radius: sizes.$md
+    border-top-left-radius: sizes.$md
+
+    h1
+      text-transform: uppercase
+      margin-bottom: sizes.$lg
+
+  .GiftList-container
+    background-color: colors.$background-secondary

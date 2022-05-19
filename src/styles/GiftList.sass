@@ -1,0 +1,40 @@
+@use './modules/colors'
+@use './modules/sizes'
+
+.GiftList
+  .List
+    max-height: 300px
+    overflow-y: auto
+
+    &::-webkit-scrollbar
+      width: sizes.$lg
+      height: sizes.$lg
+
+      &-thumb
+        background-color: colors.$background-primary
+        border-radius: 100px
+        border: 4px solid colors.$text-primary
+      &-track
+        border-radius: 100px
+        background-color: colors.$background-primary
+
+  .noGifts-container
+    color: colors.$background-primary
+    text-align: center
+
+    .noGifts-button
+      margin-top: sizes.$md
+      padding: sizes.$lg
+      border: none
+      border-radius: sizes.$sm
+      font-weight: bold
+      color: colors.$text-primary
+      background-color: colors.$background-primary
+
+      &:hover
+        color: colors.$background-primary
+        background-color: colors.$text-primary
+
+    .noGifts-image
+      height: sizes.$image-size
+      width: sizes.$image-size

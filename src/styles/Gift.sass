@@ -1,0 +1,28 @@
+@use './modules/colors'
+@use './modules/sizes'
+
+.Gift
+  display: flex
+  font-size: 1.2rem
+  margin: 0 .5rem .5rem .5rem
+  padding: .5rem
+  border-radius: sizes.$sm
+  color: colors.$text-secondary
+  background-color: colors.$background-tertiary
+
+  p
+    margin: 0
+    width: 80%
+    overflow-wrap: break-word
+
+  .remove-btn
+    align-self: center
+    width: 20%
+    border: none
+    border-radius: 100px
+    color: colors.$text-primary
+    background-color: colors.$background-primary
+
+    &:hover
+      color: colors.$white
+      background-color: colors.$extra
