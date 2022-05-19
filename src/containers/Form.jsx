@@ -1,5 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import AppContext from '../context/AppContext';
+import '../styles/Form.sass';
 
 const Form = () => {
   const { state, addGift } = useContext(AppContext);
@@ -34,7 +35,7 @@ const Form = () => {
       />
       <input
         onClick={handleAdd}
-        className="input add-input"
+        className="btn add-btn"
         type="submit"
         value="Add gift"
       />
