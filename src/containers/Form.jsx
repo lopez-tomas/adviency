@@ -4,6 +4,7 @@ import AppContext from '../context/AppContext';
 const Form = () => {
   const {state, addGift} = useContext(AppContext);
   const form = useRef(null);
+  const [gift, setGift] = useState("");
   const [giftInList, setGiftInList] = useState(false);
 
   const handleAdd = (e) => {
@@ -12,17 +13,16 @@ const Form = () => {
     let newGift = formData.get("gift");
     formData.set("gift", "");
 
-    setGiftInList(state.gifts.find(gift => gift.gift === newGift));
+    setGiftInList(state.gifts.some(gift => gift.gift === newGift));
+    setGift(newGift);
 
-    if (newGift !== "" && !giftInList) {
-      const data = {
+    if (!!newGift && !state.gifts.some(gift => gift.gift === newGift)) {
+      addGift({
         id: state.lastId,
         gift: newGift
-      }
+      });
 
-      addGift(data);
       form.current.reset();
-      setGiftInList(true);
     }
   }
 
@@ -36,13 +36,13 @@ const Form = () => {
         placeholder="Your gift"
         required
       />
-      {giftInList ? <p>Gift already in list!</p> : null}
       <input
         onClick={handleAdd}
         className="btn add-btn"
         type="submit"
         value="Add gift"
       />
+      {giftInList && <p>"{gift}" already added!</p>}
     </form>
   )
 }
