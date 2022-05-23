@@ -1,0 +1,28 @@
+@use './modules/_colors'
+@use './modules/_sizes'
+
+.Gift
+  display: flex
+  margin-right: sizes.$lg
+  margin-bottom: sizes.$lg
+  padding: sizes.$md
+  border-radius: sizes.$md
+  background-color: colors.$text-secondary
+
+  .gift-img
+    height: sizes.$no-image-size
+    width: sizes.$no-image-size
+  .gift-name
+    width: 80%
+    font-weight: bold
+    overflow-wrap: break-word
+  .remove-btn
+    align-self: center
+    font-weight: bold
+    border: none
+    border-radius: sizes.$lg
+    background-color: colors.$text-primary
+    cursor: pointer
+    &:hover
+      color: colors.$white
+      background-color: colors.$background-primary

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
 import noImage from '../images/no-image.jpg';
+import '../styles/Gift.sass';
 
 const Gift = ({ gift }) => {
   const { removeGift } = useContext(AppContext);
