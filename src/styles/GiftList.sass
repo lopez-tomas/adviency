@@ -2,11 +2,19 @@
 @use './modules/sizes'
 
 .GiftList
+  .List
+    height: 230px
+    overflow-y: auto
+
+    li:last-child
+      margin-bottom: 0
+
   .noGifts-container
     text-align: center
     color: colors.$text-primary
 
     .noGifts-btn
+      margin-top: sizes.$lg
       padding: sizes.$md
       border: none
       border-radius: sizes.$lg
