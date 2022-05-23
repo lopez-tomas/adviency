@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../context/AppContext';
 import Gift from '../components/Gift';
 import xmas from '../images/undraw-xmas-surprise.svg';
+import '../styles/GiftList.sass';
 
 const GiftList = () => {
   const {state, removeAll} = useContext(AppContext);
