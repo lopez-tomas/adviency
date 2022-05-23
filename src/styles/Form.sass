@@ -2,6 +2,7 @@
 @use './modules/_sizes'
 
 .Form
+<<<<<<< HEAD
   .inputs
     display: flex
 
@@ -38,3 +39,37 @@
   .errorMsg
     margin-top: sizes.$lg
     font-weight: bold
+=======
+  display: flex
+
+  .input, .btn
+    padding: sizes.$md
+    border: none
+
+  .input
+    &:focus
+      outline: none
+
+  .gift-input
+    width: 60%
+    margin-right: sizes.$sm
+    border-top-left-radius: sizes.$md
+    border-bottom-left-radius: sizes.$md
+  .quantity-input
+    width: 10%
+    margin-right: sizes.$md
+    border-top-right-radius: sizes.$md
+    border-bottom-right-radius: sizes.$md
+
+  .add-btn
+    border-top-left-radius: sizes.$md
+    border-bottom-left-radius: sizes.$md
+    border-top-right-radius: sizes.$md
+    border-bottom-right-radius: sizes.$md
+    font-weight: bold
+    background-color: colors.$text-primary
+    cursor: pointer
+
+    &:hover
+      background-color: colors.$text-secondary
+>>>>>>> 6580b7695ae82364eda6d9275c7f36cff420307f
