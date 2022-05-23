@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
+import '../styles/Gift.sass';
 
 const Gift = ({ gift }) => {
   const { removeGift } = useContext(AppContext)
@@ -9,7 +10,7 @@ const Gift = ({ gift }) => {
   }
 
   return (
-    <li>
+    <li className="Gift">
       <p>{gift.gift}</p>
       <button onClick={() => handleRemove(gift.id)}>X</button>
     </li>
