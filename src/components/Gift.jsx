@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
+import '../styles/Gift.sass';
 
 const Gift = ({ gift }) => {
   const { removeGift }= useContext(AppContext);
