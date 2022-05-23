@@ -1,0 +1,25 @@
+@use './modules/_colors'
+@use './modules/_sizes'
+
+.Gift
+  display: flex
+  margin-right: sizes.$lg
+  margin-bottom: sizes.$lg
+  padding: sizes.$md
+  border-radius: sizes.$md
+  background-color: colors.$text-secondary
+
+  p
+    width: 80%
+    font-weight: bold
+    overflow-wrap: break-word
+  button
+    align-self: center
+    font-weight: bold
+    border: none
+    border-radius: sizes.$lg
+    background-color: colors.$text-primary
+    cursor: pointer
+    &:hover
+      color: colors.$white
+      background-color: colors.$background-primary
