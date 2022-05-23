@@ -1,0 +1,22 @@
+@use './modules/colors'
+@use './modules/sizes'
+
+.App
+  .Form-container, .GiftList-container
+    width: 400px
+    padding: sizes.$lg
+
+  .Form-container
+    text-align: center
+    border-top-left-radius: sizes.$md
+    border-top-right-radius: sizes.$md
+    color: colors.$text-primary
+    background-color: colors.$background-primary
+
+    h1
+      margin-bottom: sizes.$md
+      text-transform: uppercase
+
+  .GiftList-container
+    min-height: 217px
+    background-color: colors.$black

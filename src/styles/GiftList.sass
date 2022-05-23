@@ -1,0 +1,23 @@
+@use './modules/colors'
+@use './modules/sizes'
+
+.GiftList
+  .noGifts-container
+    text-align: center
+    color: colors.$text-primary
+
+    .noGifts-btn
+      padding: sizes.$md
+      border: none
+      border-radius: sizes.$lg
+      color: colors.$text-primary
+      background-color: colors.$background-primary
+      cursor: pointer
+
+      &:hover
+        color: colors.$black
+        background-color: colors.$extra
+
+    .noGifts-img
+      height: sizes.$image-size
+      width: sizes.$image-size
