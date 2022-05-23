@@ -22,7 +22,7 @@ const GiftList = () => {
             ))}
           </ul>
           <div className="noGifts-container">
-            <button onClick={removeAll} className="btn removeAll-btn">Remove ALL</button>
+            <button onClick={removeAll} className="noGifts-btn">Remove ALL</button>
           </div>
         </div>
       :
