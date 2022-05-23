@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
 import AppContext from '../context/AppContext';
+import '../styles/Form.sass';
 
 const Form = () => {
   const { state, addGift } = useContext(AppContext);
@@ -29,29 +30,31 @@ const Form = () => {
 
   return (
     <form className="Form" ref={form}>
-      <input
-        autoFocus
-        className="input gift-input"
-        type="text"
-        name="gift"
-        placeholder="Your gift"
-        required
-      />
-      <input
-        className="input quantity-input"
-        type="number"
-        name="quantity"
-        defaultValue="1"
-        min="1"
-        required
-      />
-      <input
-        onClick={handleAdd}
-        className="btn add-btn"
-        type="submit"
-        value="Add gift"
-      />
-      {giftInList && <p>"{gift}" already added!</p>}
+      <div className="inputs">
+        <input
+          autoFocus
+          className="input gift-input"
+          type="text"
+          name="gift"
+          placeholder="Your gift"
+          required
+        />
+        <input
+          className="input quantity-input"
+          type="number"
+          name="quantity"
+          defaultValue="1"
+          min="1"
+          required
+        />
+        <input
+          onClick={handleAdd}
+          className="btn add-btn"
+          type="submit"
+          value="Add gift"
+        />
+      </div>
+      {giftInList && <p className="errorMsg">"{gift}" already added!</p>}
     </form>
   )
 }
