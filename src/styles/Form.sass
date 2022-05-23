@@ -1,0 +1,23 @@
+@use './modules/colors'
+@use './modules/sizes'
+
+.Form
+  .add-input, .add-btn
+    padding: sizes.$md
+    border: none
+
+  .add-input
+    border-top-left-radius: sizes.$md
+    border-bottom-left-radius: sizes.$md
+
+    &:focus
+      outline: none
+
+  .add-btn
+    border-top-right-radius: sizes.$md
+    border-bottom-right-radius: sizes.$md
+    color: colors.$background-primary
+    background-color: colors.$background-secondary
+
+    &:hover
+      background-color: colors.$text-primary

@@ -1,5 +1,6 @@
 import React, { useRef, useContext, useState } from 'react';
 import AppContext from '../context/AppContext';
+import '../styles/Form.sass';
 
 const Form = () => {
   const {state, addGift} = useContext(AppContext);
