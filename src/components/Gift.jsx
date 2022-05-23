@@ -13,14 +13,15 @@ const Gift = ({ gift }) => {
   return (
     <li className="Gift">
       <img className="gift-img" src={gift.image || noImage} height="70" width="70" alt={`Gift: ${gift.gift}`} />
-      <p className="gift-name">{gift.gift}</p>
-      <p className="gift-quantity">x {gift.quantity}</p>
-      <button
-        onClick={() => handleRemove(gift.id)}
-        className="btn remove-btn"
-      >
-        X
-      </button>
+      <p>{gift.gift}<span className="gift-quantity"> x {gift.quantity}</span></p>
+      <div>
+        <button
+          onClick={() => handleRemove(gift.id)}
+          className="btn remove-btn"
+        >
+          X
+        </button>
+      </div>
     </li>
   )
 }

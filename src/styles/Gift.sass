@@ -9,20 +9,32 @@
   border-radius: sizes.$md
   background-color: colors.$text-secondary
 
+  p, .gift-img, div
+    align-self: center
+
   .gift-img
     height: sizes.$no-image-size
-    width: sizes.$no-image-size
-  .gift-name
-    width: 80%
+    width: 18%
+
+  p
+    width: 62%
+    margin-left: sizes.$lg
     font-weight: bold
     overflow-wrap: break-word
-  .remove-btn
-    align-self: center
-    font-weight: bold
-    border: none
-    border-radius: sizes.$lg
-    background-color: colors.$text-primary
-    cursor: pointer
-    &:hover
-      color: colors.$white
-      background-color: colors.$background-primary
+
+    .gift-quantity
+      color: colors.$black
+
+  div
+    width: 20%
+    text-align: center
+    .remove-btn
+      padding: sizes.$md sizes.$lg
+      font-weight: bold
+      border: none
+      border-radius: sizes.$lg
+      background-color: colors.$text-primary
+      cursor: pointer
+      &:hover
+        color: colors.$white
+        background-color: colors.$background-primary
