@@ -2,7 +2,7 @@ import React, { useContext, useRef, useState } from 'react';
 import AppContext from '../context/AppContext';
 import '../styles/Form.sass';
 
-const Form = () => {
+const Form = ({ onClose }) => {
   const { state, addGift } = useContext(AppContext);
   const form = useRef(null);
   const [gift, setGift] = useState("");
@@ -18,7 +18,7 @@ const Form = () => {
     setGift(newGift);
     setIsGiftInList(state.gifts.some(gift => gift.gift === newGift));
 
-    if (!!newGift && !state.gifts.some(gift => gift.gift === newGift)) {
+    if (!!newGift && quantity && !state.gifts.some(gift => gift.gift === newGift)) {
       addGift({
         id: state.lastId,
         gift: newGift,
@@ -27,6 +27,7 @@ const Form = () => {
       })
 
       form.current.reset();
+      onClose();
     }
   }
 
@@ -54,6 +55,14 @@ const Form = () => {
           min="1"
           required
         />
+      </div>
+      <div className="buttons">
+        <button
+          onClick={onClose}
+          className="btn close-btn"
+        >
+          Close
+        </button>
         <input
           onClick={handleAdd}
           className="btn add-btn"
