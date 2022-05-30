@@ -2,6 +2,15 @@ import React, { useContext, useRef, useState } from 'react';
 import AppContext from '../context/AppContext';
 import '../styles/Form.sass';
 
+const surpriseGifts = [
+  'Gunnm manga',
+  'Sockets',
+  'Spanish wine',
+  'Mouse Logitech G Pro',
+  'Monitor BenQ 24"',
+  'Mousepad Logitech - Cloud 9 Edition'
+]
+
 const Form = ({ onClose, idGift }) => {
   const { state, addGift, editGift } = useContext(AppContext);
   const form = useRef(null);
@@ -10,6 +19,11 @@ const Form = ({ onClose, idGift }) => {
 
   let currGift;
   currGift = idGift ? state.gifts.find(gift => gift.id === idGift) : {};
+
+  const handleSurprise = () => {
+    const surpriseGift = surpriseGifts[Math.floor(Math.random() * surpriseGifts.length)];
+    setGift(surpriseGift);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,18 +62,21 @@ const Form = ({ onClose, idGift }) => {
         <div>
           <input
             autoFocus
-            className="input gift-input"
+            className={`input gift-input ${!idGift ? 'edit' : ''}`}
             type="text"
             name="gift"
             placeholder="Your gift"
-            defaultValue={currGift.gift}
+            defaultValue={!!gift ? gift : currGift.gift}
             required
           />
-          <button
-            className="btn surprise-btn"
-          >
-            Surprise me!
+          {!idGift &&
+            <button
+              onClick={handleSurprise}
+              className="btn surprise-btn"
+            >
+              Surprise me!
           </button>
+          }
         </div>
         <input
           className="input to-input"
