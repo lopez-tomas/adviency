@@ -3,7 +3,7 @@
 
 .App
   .Form-container, .GiftList-container
-    width: 450px
+    //width: 450px
     padding: sizes.$lg
 
   .Form-container
@@ -17,6 +17,19 @@
       margin-bottom: sizes.$md
       text-transform: uppercase
 
+    button
+      padding: sizes.$md + sizes.$sm
+      border: none
+      border-radius: sizes.$md
+      font-weight: bold
+      text-transform: uppercase
+      color: colors.$text-primary
+      background-color: colors.$black
+      &:hover
+        color: colors.$black
+        background-color: colors.$text-primary
+
   .GiftList-container
+    width: 450px
     min-height: 217px
     background-color: colors.$black
