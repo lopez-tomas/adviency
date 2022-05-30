@@ -31,7 +31,7 @@
   div
     width: 20%
     text-align: center
-    .remove-btn
+    .remove-btn, .edit-btn
       padding: sizes.$md sizes.$lg
       font-weight: bold
       border: none
@@ -41,3 +41,15 @@
       &:hover
         color: colors.$white
         background-color: colors.$background-primary
+      &:focus
+        outline-color: colors.$black
+
+    .edit-btn
+      margin-bottom: sizes.$sm
+      color: colors.$white
+      background-color: colors.$black
+      &:hover
+        color: colors.$black
+        background-color: #ccc
+      &:focus
+        outline-color: colors.$white
