@@ -28,7 +28,19 @@
       &:valid
         outline-color: lime
 
-    .gift-input
+    div
+      display: flex
+      margin-bottom: sizes.$md
+      .gift-input
+        width: 100%
+        margin-bottom: 0
+      .edit
+        width: 60%
+        margin-right: sizes.$md
+      .surprise-btn
+        text-transform: none
+        color: colors.$text-primary
+        background-color: colors.$black
     .image-input
     .quantity-input
       width: 20%
