@@ -9,8 +9,8 @@ const useInitialState = () => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    localStorage.setItem("gifts", JSON.stringiyfy(state.gifts));
-    localStorage.setItem("lastId", JSON.stringiyfy(state.lastId));
+    localStorage.setItem("gifts", JSON.stringify(state.gifts));
+    localStorage.setItem("lastId", JSON.stringify(state.lastId));
   }, [state.gifts, state.lastId])
 
   const addGift = (payload) => {
@@ -29,6 +29,7 @@ const useInitialState = () => {
           return {
             id: id,
             gift: payload.gift,
+            price: payload.price,
             to: payload.to,
             image: payload.image,
             quantity: payload.quantity
