@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Form from './Form';
+import '../styles/Modal.sass';
 
 const Modal = ({ show, onClose, idGift }) => {
   const closeOnEscapeKeyDown = (e) => {
