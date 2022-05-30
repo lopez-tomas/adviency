@@ -19,8 +19,8 @@ const Gift = ({ gift }) => {
         <img className="gift-img" src={gift.image ? gift.image : noImage} alt={gift.gift}/>
         <p className="gift-name">
           {gift.gift}
-          <span className="gift-quantity"> ({gift.quantity})</span>
-          <span className="gift-price"> - $ {calculatePrice(gift.price, gift.quantity)}</span><br />
+          <span className="gift-quantity"> ({gift.quantity})</span><br />
+          <span className="gift-price"> $ {calculatePrice(gift.price, gift.quantity)}</span><br />
           <span className="gift-to">{gift.to}</span>
         </p>
         <div>
