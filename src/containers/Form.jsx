@@ -59,7 +59,7 @@ const Form = ({ onClose, idGift }) => {
 
 
   return (
-    <form className="Form" ref={form}>
+    <form onSubmit={handleSubmit} className="Form" ref={form}>
       <div className="inputs">
         <input
           autoFocus
@@ -104,14 +104,14 @@ const Form = ({ onClose, idGift }) => {
         {idGift
           ?
             <input
-              onClick={handleSubmit}
+              //onClick={handleSubmit}
               className="btn add-btn"
               type="submit"
               value="Edit gift"
             />
           :
             <input
-              onClick={handleSubmit}
+              //onClick={handleSubmit}
               className="btn add-btn"
               type="submit"
               value="Add gift"
