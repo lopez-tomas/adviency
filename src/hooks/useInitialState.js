@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const initialState = {
   gifts: JSON.parse(localStorage.getItem("gifts")) || [],
-  lastId: JSON.parse(localStorage.getItems("lastId")) || 1
+  lastId: JSON.parse(localStorage.getItem("lastId")) || 1
 }
 
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
+
+  useEffect(() => {
+    localStorage.setItem("gifts", JSON.stringify(state.gifts));
+    localStorage.setItem("lastId", JSON.stringify(state.lastId));
+  }, [state.gifts, state.lastId])
 
   const addGift = (payload) => {
     setState({
