@@ -1,10 +1,10 @@
 export interface Gift {
-  id: number | string;
+  id: number;
   gift: string;
-  price: number | string;
+  price: number;
   to: string;
   image?: string
-  quantity: number | string;
+  quantity: number;
 }
 
 export interface InitialState {
