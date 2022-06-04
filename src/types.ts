@@ -11,5 +11,5 @@ export interface ContextProps {
 
 export interface FormProps {
   onClose: () => void;
-  idGift?: number | string;
+  idGift?: number;
 }
