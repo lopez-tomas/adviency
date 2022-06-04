@@ -75,7 +75,7 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
             type='text'
             name='gift'
             placeholder='Your gift'
-            defaultValue={gift ? gift : currGift?.gift}
+            defaultValue={idGift ? currGift?.gift : gift}
             required
           />
           {!idGift &&
