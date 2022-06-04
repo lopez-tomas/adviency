@@ -100,7 +100,7 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
         <input
           className='input image-input'
           type='text'
-          name='to'
+          name='image'
           placeholder='Gift image URL'
           defaultValue={idGift && currGift?.image}
         />
