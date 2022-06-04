@@ -28,36 +28,28 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(form.current);
-    const newGift = (formData.get('gift') as string);
-    const price = (formData.get('price') as string);
-    const to = (formData.get('to') as string);
-    const image = (formData.get('image') as string);
-    const quantity = (formData.get('quantity') as string);
+    const newGift = formData.get('gift') as string;
+    const price = parseFloat(formData.get('price') as string);
+    const to = formData.get('to') as string;
+    const image = formData.get('image') as string;
+    const quantity = parseInt(formData.get('quantity') as string);
 
     setGift(newGift);
     const validation = !!newGift && !!price && !!to && quantity;
 
+    const giftObj = {
+      gift: newGift,
+      price: price,
+      to: to,
+      image: image,
+      quantity: quantity
+    }
+
     if (validation) {
       if (!idGift) {
-        let giftObj: AddGiftDto = {
-          gift: newGift,
-          price: price,
-          to: to,
-          image: image,
-          quantity: quantity
-        }
-
-        addGift!(giftObj);
+        addGift!(giftObj as AddGiftDto);
       } else {
-        let giftObj: EditGiftDto = {
-          gift: newGift,
-          price: price,
-          to: to,
-          image: image,
-          quantity: quantity
-        }
-
-        editGift!(idGift, giftObj);
+        editGift!(idGift, giftObj as EditGiftDto);
       }
 
       form.current.reset();
@@ -71,7 +63,7 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
         <div>
           <input
             autoFocus
-            className={`input gift-input ${idGift && 'edit'}`}
+            className={`input gift-input ${!idGift ? 'edit' : ''}`}
             type='text'
             name='gift'
             placeholder='Your gift'
@@ -130,7 +122,7 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
           Close
         </button>
         <input
-          className={`btn add-btn ${idGift && 'edit-btn'}`}
+          className={`btn add-btn ${idGift ? 'edit-btn' : ''}`}
           type='submit'
           value={idGift ? 'Edit gift' : 'Create gift'}
         />
