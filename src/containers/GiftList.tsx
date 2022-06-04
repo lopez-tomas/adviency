@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from 'react';
 import AppContext from '../context/AppContext';
 import GiftFC from '../components/GiftFC';
 import '../styles/GiftList.sass';
+import xmas from '../images/undraw-xmas-surprise.svg';
 
 const GiftList: React.FC = () => {
   const { state, removeAll }: ContextProps = useContext(AppContext);
@@ -27,7 +28,7 @@ const GiftList: React.FC = () => {
       :
         <div className='GiftList'>
           <div className='noGifts-container'>
-            <img className='noGifts-img' src="" alt="No gifts" />
+            <img className='noGifts-img' src={xmas} alt="No gifts" />
             <p className='noGifts-msg'>No gifts added :(</p>
           </div>
         </div>
