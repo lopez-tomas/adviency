@@ -41,13 +41,14 @@ const useInitialState = () => {
   function editGift(id: Gift['id'], payload: EditGiftDto): unknown {
     const index = state.gifts.findIndex(gift => gift.id === id);
 
-    if (index) {
+    if (index !== -1) {
       const prevDataGift = state.gifts[index];
       const updatedGift = {...prevDataGift, ...payload};
+      state.gifts.splice(index, 1, updatedGift)
 
       setState({
         ...state,
-        gifts: [...state.gifts, updatedGift]
+        gifts: [...state.gifts]
       })
 
       return updatedGift;
@@ -64,13 +65,14 @@ const useInitialState = () => {
   function removeGift(id: Gift['id']): unknown {
     const index = state.gifts.findIndex(gift => gift.id === id);
 
-    if (!index) return `$Gift with ID: ${id} not found.`;
+    if (index === -1) return `$Gift with ID: ${id} not found.`;
 
-    const gift = index ? state.gifts[index] : undefined;
+    state.gifts.splice(index, 1)
+    const gift = index !== -1 ? state.gifts[index] : undefined;
 
     setState({
       ...state,
-      gifts: state.gifts.splice(index, 1)
+      gifts: [...state.gifts]
     })
 
     return gift;
