@@ -13,7 +13,7 @@ const surpriseGifts = [
   'Nintendo Switch'
 ]
 
-const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
+const Form: React.FC<FormProps> = ({ onClose, idGift, edit }) => {
   const { state, addGift, editGift }: ContextProps = useContext(AppContext);
   const form: (React.MutableRefObject<any> | null) = useRef(null);
   const [gift, setGift] = useState<string>('');
@@ -46,10 +46,10 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
     }
 
     if (validation) {
-      if (!idGift) {
+      if (idGift && edit) {
         addGift!(giftObj as AddGiftDto);
       } else {
-        editGift!(idGift, giftObj as EditGiftDto);
+        editGift!(idGift!, giftObj as EditGiftDto);
       }
 
       form.current.reset();
@@ -63,20 +63,21 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
         <div>
           <input
             autoFocus
-            className={`input gift-input ${!idGift ? 'edit' : ''}`}
+            className={`input gift-input ${!idGift && edit ? 'edit' : ''}`}
             type='text'
             name='gift'
             placeholder='Your gift'
-            defaultValue={idGift ? currGift?.gift : gift}
+            defaultValue={idGift || edit ? currGift?.gift : gift}
             required
           />
-          {!idGift &&
+          {!idGift && !edit ?
             <button
               onClick={handleSurprise}
               className='btn surprise-btn'
             >
               Surprise me!
             </button>
+            : null
           }
         </div>
         <input
@@ -84,7 +85,7 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
           type='number'
           name='price'
           placeholder='Gift price'
-          defaultValue={idGift && currGift?.price}
+          defaultValue={idGift || edit ? currGift?.price : ''}
           min='1'
           step='.01'
           required
@@ -94,7 +95,7 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
           type='text'
           name='to'
           placeholder='Lucky one'
-          defaultValue={idGift && currGift?.to}
+          defaultValue={idGift || edit ? currGift?.to : ''}
           required
         />
         <input
@@ -102,13 +103,13 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
           type='text'
           name='image'
           placeholder='Gift image URL'
-          defaultValue={idGift && currGift?.image}
+          defaultValue={idGift || edit ? currGift?.image : ''}
         />
         <input
           className='input quantity-input'
           type='number'
           name='quantity'
-          defaultValue={idGift ? currGift?.quantity : '1'}
+          defaultValue={idGift || edit ? currGift?.quantity : '1'}
           min='1'
           required
         />
@@ -122,9 +123,9 @@ const Form: React.FC<FormProps> = ({ onClose, idGift }) => {
           Close
         </button>
         <input
-          className={`btn add-btn ${idGift ? 'edit-btn' : ''}`}
+          className={`btn add-btn ${idGift && edit ? 'edit-btn' : ''}`}
           type='submit'
-          value={idGift ? 'Edit gift' : 'Create gift'}
+          value={idGift && !edit ? 'Edit gift' : 'Create gift'}
         />
       </div>
     </form>
