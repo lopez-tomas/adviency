@@ -41,14 +41,14 @@ const useInitialState = () => {
   const getGift = (id: Gift['id']): number | undefined => {
     const index = state.gifts.findIndex(gift => gift.id === id);
 
-    return index !== -1 ? index : undefined;
+    return index >= 0 ? index : undefined;
   }
 
 
   const editGift = (id: Gift['id'], payload: EditGiftDto): string => {
     const index = getGift(id);
 
-    if (!index) return `Gift with ID #${id} not found`;
+    if (index === undefined) return `Edit: Gift with ID #${id} not found`;
 
     const prevData = state.gifts[index];
     const newGift = {...prevData, ...payload};
@@ -60,14 +60,14 @@ const useInitialState = () => {
       gifts: [...state.gifts]
     })
 
-    return `Gift with ID #${id} edited successfully`;
+    return `Edit: Gift with ID #${id} edited successfully`;
   }
 
 
   const deleteGift = (id: Gift['id']): string => {
     const index = getGift(id);
 
-    if (!index) return `Gift with ID #${id} deleted successfully`;
+    if (index === undefined) return `Delete: Gift with ID #${id} not found`;
 
     state.gifts.splice(index, 1);
 
@@ -76,7 +76,7 @@ const useInitialState = () => {
       gifts: [...state.gifts]
     })
 
-    return `Gift with ID #${id} deleted successfully`;
+    return `Delete: Gift with ID #${id} deleted successfully`;
   }
 
 

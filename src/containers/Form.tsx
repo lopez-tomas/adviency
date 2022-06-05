@@ -35,22 +35,22 @@ const Form: React.FC<FormProps> = ({ onClose, idGift, duplicate }) => {
     const image = formData.get('image') as string;
     const quantity = parseInt(formData.get('quantity') as string);
 
+    setGift(newGift);
     const validation = !!newGift && !!price && !!to && !!quantity;
 
-    if (validation) {
-      const giftObj = {
-        id: state?.lastId,
-        gift: newGift,
-        price: price,
-        to: to,
-        image: image,
-        quantity: quantity
-      }
+    const giftObj = {
+      gift: newGift,
+      price: price,
+      to: to,
+      image: image,
+      quantity: quantity
+    }
 
-      if (!idGift || duplicate) {
-        addGift!(giftObj as AddGiftDto);
-      } else {
+    if (validation) {
+      if (idGift && !duplicate) {
         editGift!(idGift!, giftObj as EditGiftDto);
+      } else {
+        addGift!(giftObj as AddGiftDto);
       }
 
       form.current.reset();
@@ -64,7 +64,7 @@ const Form: React.FC<FormProps> = ({ onClose, idGift, duplicate }) => {
         <div>
           <input
             autoFocus
-            className={`input gift-input ${idGift ? 'edit' : ''}`}
+            className={`input gift-input ${!idGift ? 'edit' : ''}`}
             type='text'
             name='gift'
             placeholder='Your gift'
@@ -109,7 +109,7 @@ const Form: React.FC<FormProps> = ({ onClose, idGift, duplicate }) => {
           className='input quantity-input'
           type='number'
           name='quantity'
-          defaultValue={idGift ? currGift?.image : '1'}
+          defaultValue={idGift ? currGift?.quantity : '1'}
           required
         />
       </div>
