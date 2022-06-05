@@ -7,7 +7,7 @@ interface Props extends FormProps {
   show: boolean;
 }
 
-const Modal: React.FC<Props> = ({ show, onClose, idGift }) => {
+const Modal: React.FC<Props> = ({ show, onClose, idGift, edit }) => {
   const closeOnEscapeKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
       onClose();
@@ -30,7 +30,7 @@ const Modal: React.FC<Props> = ({ show, onClose, idGift }) => {
     <div className='Modal' onClick={onClose}>
       <div className='Modal-content' onClick={e => e.stopPropagation()}>
         <main className="Modal-body">
-          <Form onClose={onClose} idGift={idGift} />
+          <Form onClose={onClose} idGift={idGift} edit={edit} />
         </main>
       </div>
     </div>
