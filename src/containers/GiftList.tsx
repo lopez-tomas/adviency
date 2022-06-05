@@ -33,8 +33,8 @@ const GiftList: React.FC<Props> = ({ onClose, preview, total }) => {
   return (
     areThereGifts
       ?
-        <div className={`GiftList ${preview ? 'preview' : ''}`}>
-          <ul className={`List ${preview ? 'preview' : ''}`}>
+        <div className={`GiftList ${!preview ? 'preview' : ''}`}>
+          <ul className={`List ${!preview ? 'preview' : ''}`}>
             {state?.gifts.map(gift => (
               <GiftFC key={gift.id} gift={gift} preview={preview ? true : false} />
             ))}

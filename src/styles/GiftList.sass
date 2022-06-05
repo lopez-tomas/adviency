@@ -29,7 +29,15 @@
     color: colors.$white
 
   .noGifts-container
-    .noGifts-btn
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    h2
+      margin-bottom: sizes.$md
+
+    .noGifts-btn, .noGifts-preview, .noGifts-close
+      width: 40%
       margin-top: sizes.$lg
       border: none
       padding: sizes.$md
@@ -42,6 +50,21 @@
         background-color: colors.$extra
       &:focus
         outline-color: colors.$white
+
+    .noGifts-preview
+      margin-top: sizes.$md
+      color: colors.$black
+      background-color: #ccc
+      &:hover
+        color: colors.$white
+        background-color: #000
+        &:focus
+          outline-color: colors.$white
+      &:focus
+        outline-color: colors.$black
+
+    .noGifts-close
+      margin-top: 0
 
     .noGifts-img
       width: sizes.$image-size
