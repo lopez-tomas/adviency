@@ -25,7 +25,7 @@ const GiftFC: React.FC<Props> = ({ gift, preview }) => {
 
   return (
     <>
-      <li className='Gift'>
+      <li className={`Gift ${preview ? 'preview' : ''}`}>
         <img className='gift-img' src={gift.image ? gift.image : noImage } alt={gift.gift} />
         <p className='gift-name'>
           {gift.gift}
@@ -55,7 +55,7 @@ const GiftFC: React.FC<Props> = ({ gift, preview }) => {
               X
             </button>
           </div>
-      }
+        }
       </li>
 
       <Modal show={showEdit} onClose={() => setShowEdit(false)}>
