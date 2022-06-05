@@ -15,6 +15,7 @@ interface Props {
 const GiftFC: React.FC<Props> = ({ gift }) => {
   const { removeGift }: ContextProps = useContext(AppContext);
   const [show, setShow] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
 
   const calculatePrice = (price: Gift['price'], quantity: Gift['quantity']): string => {
     return (price * quantity).toFixed(2);
@@ -38,6 +39,12 @@ const GiftFC: React.FC<Props> = ({ gift }) => {
             E
           </button>
           <button
+            onClick={() => setShowEdit(!showEdit)}
+            className='btn duplicate-btn'
+          >
+            D
+          </button>
+          <button
             onClick={() => removeGift!(gift.id)}
             className='btn remove-btn'
           >
@@ -47,6 +54,7 @@ const GiftFC: React.FC<Props> = ({ gift }) => {
       </li>
 
       <Modal show={show} onClose={() => setShow(false)} idGift={gift.id} />
+      <Modal show={showEdit} onClose={() => setShowEdit(false)} idGift={gift.id} edit />
     </>
   )
 }
