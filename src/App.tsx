@@ -1,28 +1,10 @@
-import { useState } from 'react';
-import AppContext from './context/AppContext';
-import useInitialState from './hooks/useInitialState';
-import Modal from './containers/Modal';
-import GiftList from './containers/GiftList';
-import './styles/App.sass';
+import React from 'react';
 
 const App = () => {
-  const initialState = useInitialState();
-  const [show, setShow] = useState(false);
-
   return (
-    <AppContext.Provider value={initialState}>
-      <main className='App'>
-        <section className='Form-container'>
-          <h1>Gifts</h1>
-          <button onClick={() => setShow(!show)} className='btn add-btn'>Add gifts</button>
-
-          <Modal show={show} onClose={() => setShow(false)} />
-        </section>
-        <section className='GiftList-container'>
-          <GiftList />
-        </section>
-      </main>
-    </AppContext.Provider>
+    <div className="App">
+      <h1>Hello World!</h1>
+    </div>
   )
 }
 
