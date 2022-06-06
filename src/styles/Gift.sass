@@ -34,6 +34,9 @@
   div
     width: 30%
     text-align: center
+    &.no-print
+      display: none
+
     .remove-btn, .edit-btn, .duplicate-btn
       padding: sizes.$sm sizes.$md
       font-weight: bold
@@ -72,3 +75,12 @@
 
     span:first-child
       width: 100%
+
+@media print
+  @page
+    size: auto
+    margin: 0mm
+  .Gift
+    justify-content: center
+    div
+      display: none
