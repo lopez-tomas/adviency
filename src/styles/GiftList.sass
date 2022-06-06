@@ -28,8 +28,19 @@
     font-size: 2rem
     color: colors.$white
 
+  .total-container.preview
+    display: none
+
   .noGifts-container
-    .noGifts-btn
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    h2
+      margin: sizes.$md 0
+
+    .noGifts-btn, .noGifts-preview, .noGifts-close, .noGifts-print
+      width: 40%
       margin-top: sizes.$lg
       border: none
       padding: sizes.$md
@@ -43,6 +54,36 @@
       &:focus
         outline-color: colors.$white
 
+    .noGifts-preview
+      margin-top: sizes.$md
+      color: colors.$black
+      background-color: #ccc
+      &:hover
+        color: colors.$white
+        background-color: #000
+        &:focus
+          outline-color: colors.$white
+      &:focus
+        outline-color: colors.$black
+
+    .noGifts-buttons
+      width: 100%
+      display: flex
+      justify-content: space-between
+      margin-top: sizes.$lg
+
+      .noGifts-close, .noGifts-print
+        width: 45%
+        padding: sizes.$lg
+        margin-top: 0
+
+      .noGifts-close
+        color: colors.$black
+        background-color: #ccc
+        &:hover
+          color: colors.$text-primary
+          background-color: colors.$black
+
     .noGifts-img
       width: sizes.$image-size
       height: sizes.$image-size
@@ -51,3 +92,7 @@
       font-weight: bold
       margin-top: sizes.$lg
       color: colors.$text-primary
+
+  h1
+    margin-bottom: sizes.$lg
+    font-size: 2rem
