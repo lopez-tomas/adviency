@@ -13,11 +13,22 @@
     color: colors.$text-primary
     background-color: colors.$background-primary
 
-    h1
-      margin-bottom: sizes.$md
-      text-transform: uppercase
+    div
+      position: relative
 
-    button
+      h1
+        margin-bottom: sizes.$md
+        text-transform: uppercase
+      .music-btn
+        position: absolute
+        top: 0
+        right: 0
+        margin: 0
+        img
+          height: sizes.$lg * 2
+          width: sizes.$lg * 2
+
+    .add-btn
       padding: sizes.$md + sizes.$sm
       border: none
       border-radius: sizes.$md
