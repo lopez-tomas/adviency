@@ -55,7 +55,7 @@ const useInitialState = () => {
     if (index === undefined) return `Edit: Gift with ID #${id} not found!`;
 
     const prevData = state.gifts[index];
-    const newData = {...prevData, payload};
+    const newData = {...prevData, ...payload};
     state.gifts.splice(index, 1, newData);
 
     setState({
