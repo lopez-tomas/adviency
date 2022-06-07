@@ -13,8 +13,11 @@
     align-self: center
 
   .gift-img
+    margin: 0
+    border-top-left-radius: sizes.$md
+    border-bottom-left-radius: sizes.$md
     height: sizes.$no-image-size
-    width: 18%
+    width: sizes.$no-image-size
 
   .gift-name
     width: 85%
@@ -22,15 +25,18 @@
     font-weight: bold
     overflow-wrap: break-word
 
-    .gift-quantity
+    .gift-quantity, .gift-to
       color: colors.$black
 
-    .gift-to
+    .gift-price
       color: colors.$white
 
   div
     width: 30%
     text-align: center
+    &.no-print
+      display: none
+
     .remove-btn, .edit-btn, .duplicate-btn
       padding: sizes.$sm sizes.$md
       font-weight: bold
@@ -62,3 +68,19 @@
         background-color: colors.$black
       &:focus
         outline-color: colors.$black
+
+.Gift.preview
+  .gift-name
+    width: 100%
+
+    span:first-child
+      width: 100%
+
+@media print
+  @page
+    size: auto
+    margin: 0mm
+  .Gift
+    justify-content: center
+    div
+      display: none
