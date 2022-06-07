@@ -111,7 +111,7 @@ const Form: React.FC<FormProps> = ({ onClose, idGift, duplicate }) => {
           className="input quantity-input"
           type="number"
           name="quantity"
-          defaultValue={idGift ? currGift?.quantity : ''}
+          defaultValue={idGift ? currGift?.quantity : '1'}
           min="1"
           required
         />
